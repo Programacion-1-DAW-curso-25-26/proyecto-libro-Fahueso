@@ -1,10 +1,11 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
+public class Main{//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+
+
+public static void main(String args[]) {
     Libro libro = new Libro();
-    libro.titulo="Quijote";
-    libro.autor="Cervantes";
-    libro.numPaginas=500;
-    libro.valoracion=10;
+    libro.setTitulo("Quijote");
+    libro.setAutor("Cervantes");
+    libro.setNumpaginas(500);
+    libro.setValoracion(10);
     }
 }
