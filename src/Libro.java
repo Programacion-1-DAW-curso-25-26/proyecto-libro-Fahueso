@@ -4,6 +4,13 @@ public class Libro {
     private int numpaginas;
     private int valoracion;
 
+    public Libro(String titulo, String autor, int numpaginas, int valoracion) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numpaginas = numpaginas;
+        this.valoracion = valoracion;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -37,6 +44,6 @@ public class Libro {
     }
 
     void mostarInfo(){
-        System.out.println(titulo + autor + numPaginas + valoracion);
+        System.out.println(titulo + autor + numpaginas + valoracion);
     }
 }
