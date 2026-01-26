@@ -11,33 +11,48 @@ public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
     char opcion = ' ';
     ArrayList<Libro> biblioteca = new ArrayList<>();
+    HashSet<Autor> autores = new HashSet<>();
     do{ 
         imprimir_menu();
         opcion = sc.nextLine().toLowerCase().charAt(0);
          switch (opcion){
             case 'a':
-                anyadirLibro(biblioteca, sc);
+                anyadirLibro(biblioteca, autores, sc);
                 break;
             case 'b':
-                 mostrarTodos(biblioteca);
+                 anyadirAutor(autores, sc);
                  break;
             case 'c':
-                 buscarPorISBN(biblioteca,sc);
+                 mostrarTodos(biblioteca);
                  break;
             case 'd':
+                 buscarPorISBN(biblioteca,sc);
+                 break;
+            case 'e':
                  eliminarPorISBN(biblioteca,sc);
                  break; 
-            case 'e':
+            case 'f':
                  vaciarLista(biblioteca,sc);
                  break; 
             default:
                 System.out.println("opcion incorrecta");
                 break;
          }
-    }while (opcion!= 'e');
+    }while (opcion!= 'g');
 
 
 }
+
+    private static Autor anyadirAutor(HashSet<Autor> autores, Scanner sc) {
+        String nombreAutor, nacionalidadAutor;
+        Autor autor;
+        nombreAutor = sc.nextLine();
+        System.out.println("Dime la nacionalidad del autor");
+        nacionalidadAutor = sc.nextLine();
+        autor = new Autor(nombreAutor, nacionalidadAutor);
+        autores.add(autor);
+        return autor;
+    }
 
     private static void eliminarPorISBN(ArrayList<Libro> biblioteca, Scanner sc) {
         System.out.println("Dime el ISBN buscado");
@@ -103,17 +118,21 @@ public static void main(String args[]) {
         System.out.println("""
                 --- MENÚ LIBRERÍA ---
                 a. Añadir Libro
-                b. Mostrar Libros
-                c. Buscar por ISBN
-                d. Borrar por ISBN
-                e. Salir
+                b. Añadir Autor
+                c. Mostrar Libros
+                d. Buscar por ISBN
+                e. Borrar por ISBN
+                f. Vaciar Lista
+                g. Salir
                 Seleccione opción:
                 """);
     }
 
-    private static void anyadirLibro(ArrayList<Libro> biblioteca, Scanner sc) {
+    private static void anyadirLibro(ArrayList<Libro> biblioteca, HashSet<Autor> autores, Scanner sc) {
         String titulo;
-        String autor;
+        String nombreAutor;
+        String nacionalidadAutor;
+        Autor autor;
         int numPaginas;
         int valoracion;
         int isbn;
@@ -121,7 +140,8 @@ public static void main(String args[]) {
         System.out.println("Dime el nombre");
         titulo = sc.nextLine();
         System.out.println("Dime el autor");
-        autor = sc.nextLine();
+        autor = anyadirAutor(autores, sc);
+
         System.out.println("Dime el número de páginas");
         numPaginas = sc.nextInt();
         sc.nextLine();
@@ -135,4 +155,6 @@ public static void main(String args[]) {
         biblioteca.add(nuevo);
 
     }
+
+
 }

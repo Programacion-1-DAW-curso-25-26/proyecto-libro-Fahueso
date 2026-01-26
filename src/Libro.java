@@ -2,12 +2,12 @@ import java.util.Objects;
 
 public class Libro {
     private String titulo;
-    private String autor;
+    private Autor autor; //-> Pasar a clase Autor!!!
     private int numpaginas;
     private int valoracion;
     private int isbn;
 
-    public Libro(String titulo, String autor, int numpaginas, int valoracion, int isbn) {
+    public Libro(String titulo, Autor autor, int numpaginas, int valoracion, int isbn) {
         this.titulo = titulo;
         this.autor = autor;
         this.numpaginas = numpaginas;
@@ -31,11 +31,11 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
