@@ -44,12 +44,14 @@ public static void main(String args[]) {
 }
 
     private static Autor anyadirAutor(HashSet<Autor> autores, Scanner sc) {
-        String nombreAutor, nacionalidadAutor;
+        String nombreAutor, nacionalidadAutor, estiloAutor;
         Autor autor;
         nombreAutor = sc.nextLine();
         System.out.println("Dime la nacionalidad del autor");
         nacionalidadAutor = sc.nextLine();
-        autor = new Autor(nombreAutor, nacionalidadAutor);
+        System.out.println("Dime el estilo del autor");
+        estiloAutor = sc.nextLine();
+        autor = new Autor(nombreAutor, nacionalidadAutor, estiloAutor);
         autores.add(autor);
         return autor;
     }

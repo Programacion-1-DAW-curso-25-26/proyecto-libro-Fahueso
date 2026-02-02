@@ -1,17 +1,11 @@
 import java.util.Objects;
 
-public class Libro {
-    private String titulo;
-    private Autor autor; //-> Pasar a clase Autor!!!
-    private int numpaginas;
-    private int valoracion;
+public class Libro extends Publicacion {
+
     private int isbn;
 
     public Libro(String titulo, Autor autor, int numpaginas, int valoracion, int isbn) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.numpaginas = numpaginas;
-        this.valoracion = valoracion;
+        super(titulo, autor, numpaginas, valoracion);
         this.isbn = isbn;
     }
 
@@ -23,44 +17,14 @@ public class Libro {
         this.isbn = isbn;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-    }
-
-    public int getNumpaginas() {
-        return numpaginas;
-    }
-
-    public void setNumpaginas(int numpaginas) {
-        this.numpaginas = numpaginas;
-    }
-
-    public int getValoracion() {
-        return valoracion;
-    }
-
-    public void setValoracion(int valoracion) {
-        this.valoracion = valoracion;
-    }
 
     void mostarInfo(){
-        System.out.println("Titulo = " + titulo);
-        System.out.println("Autor = " + autor);
+        System.out.println("Titulo = " + getTitulo());
+        System.out.println("Autor = " + getAutor());
         System.out.println("ISBN = " + isbn);
-        System.out.println("NumPaginas = " + numpaginas);
-        System.out.println("Valoración = " + valoracion);
+        System.out.println("NumPaginas = " + getNumpaginas());
+        System.out.println("Valoración = " + getValoracion());
     }
 
     @Override
@@ -73,10 +37,7 @@ public class Libro {
     @Override
     public String toString() {
         return "Libro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", numpaginas=" + numpaginas +
-                ", valoracion=" + valoracion +
+                super.toString() + " "  +
                 ", isbn=" + isbn +
                 '}';
     }
